@@ -150,14 +150,14 @@ if __name__ == "__main__":
         if session is not None:
             create_keyspace(session)
             create_table(session)
-            insert_data(session)
+            #insert_data(session)
 
             #logging.info("Streaming is being started...")
 
-            streaming_query = (selection_df.writeStream.format("org.apache.spark.sql.cassandra")
-                               .option('checkpointLocation', '/tmp/checkpoint')
-                               .option('keyspace', 'spark_streams')
-                               .option('table', 'created_users')
-                               .start())
-
-            streaming_query.awaitTermination()
+            # streaming_query = (selection_df.writeStream.format("org.apache.spark.sql.cassandra")
+            #                    .option('checkpointLocation', '/tmp/checkpoint')
+            #                    .option('keyspace', 'spark_streams')
+            #                    .option('table', 'created_users')
+            #                    .start())
+            #
+            # streaming_query.awaitTermination()
